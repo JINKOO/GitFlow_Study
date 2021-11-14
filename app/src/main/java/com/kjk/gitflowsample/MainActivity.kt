@@ -15,7 +15,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+
         val name = binding.tvName.text.toString()
         Log.w("1111", name)
+    }
+
+    // short branch에서 기능 개선(bug fix)
+    private fun showToast(name: String) {
+
     }
 }
