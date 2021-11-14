@@ -40,4 +40,8 @@ class Model {
     fun getItemContents(position: Int): String? {
         return itemList[position].contents
     }
+
+    fun getitemList(): ArrayList<DataEntity> {
+        return itemList
+    }
 }
