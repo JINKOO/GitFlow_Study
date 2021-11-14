@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GitFlowSample</string>
+
+    <string name="title_main">KoJinKweon</string>
 </resources>
