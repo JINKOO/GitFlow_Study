@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         Log.w("1111", name)
 
         //TODO 이름을 토스트로 보여주는 버튼을 추가해야 한다.
-
+        showToast(name)
     }
 
     // short branch에서 기능 개선(bug fix)
