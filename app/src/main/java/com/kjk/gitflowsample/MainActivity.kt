@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun createLayoutManager(): LinearLayoutManager {
         var layoutManager = LinearLayoutManager(this)
-        layoutManager.orientation = RecyclerView.VERTICAL
+        layoutManager.orientation = RecyclerView.HORIZONTAL
         return layoutManager
     }
 
