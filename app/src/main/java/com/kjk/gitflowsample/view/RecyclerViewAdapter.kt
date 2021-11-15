@@ -8,7 +8,8 @@ import com.kjk.gitflowsample.data.Model
 import com.kjk.gitflowsample.databinding.ItemRowBinding
 
 class RecyclerViewAdapter(val model: Model): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    
+
+
     private val notifyChangedCallBack: AdapterNotify by lazy {
         object : AdapterNotify {
             override fun notifyDataChanged(pos: Int) {
