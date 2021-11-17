@@ -3,6 +3,8 @@ package com.kjk.gitflowsample.data
 /**
  *  실제로 로직을 실행하기 위한 Class.
  *  data 가공을 위한 Class.
+ *  비즈니스 로직을 담당하는 부분이다.
+ *  비즈니스 로직은 Context에 종속적이지 않아야 한다.
  */
 class Model {
 
