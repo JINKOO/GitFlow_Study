@@ -33,6 +33,9 @@ class RecyclerViewAdapter(val model: Model): RecyclerView.Adapter<RecyclerView.V
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is ItemViewHolder) {
+            holder.bind()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -52,6 +55,10 @@ class RecyclerViewAdapter(val model: Model): RecyclerView.Adapter<RecyclerView.V
 
         private fun setListener() {
             binding.tvContents.setOnClickListener(this)
+        }
+
+        fun bind() {
+            binding.tvContents.text = model.getItemContents(adapterPosition)
         }
 
         override fun onClick(v: View?) {
