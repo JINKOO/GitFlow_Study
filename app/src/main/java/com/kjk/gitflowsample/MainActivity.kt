@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setListener() {
         binding.btnInput.setOnClickListener(this)
+        binding.btnDelete.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -58,11 +59,26 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.btnInput -> {
                 onClickInputButton()
             }
+            binding.btnDelete -> {
+                onClickDeleteAllButton()
+            }
         }
     }
 
+    /**
+     *  data생성하는 메소드
+     */
     private fun onClickInputButton() {
         model.createTestData()
+        adapter.notifyDataSetChanged()
+    }
+
+
+    /**
+     * 모든 data를 삭제하는 메소드
+     */
+    private fun onClickDeleteAllButton() {
+        model.deleteAllData()
         adapter.notifyDataSetChanged()
     }
 }
