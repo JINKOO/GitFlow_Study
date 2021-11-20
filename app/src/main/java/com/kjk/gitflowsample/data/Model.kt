@@ -1,5 +1,7 @@
 package com.kjk.gitflowsample.data
 
+import android.util.Log
+
 /**
  *  실제로 로직을 실행하기 위한 Class.
  *  data 가공을 위한 Class.
@@ -14,7 +16,7 @@ class Model {
      *  data를 생성하는 method
      */
     fun createTestData() {
-        for (i in 0 until 100) {
+        for (i in 0 until 20) {
             var dataEntity = DataEntity()
             dataEntity.contents = "${i}번째 아이템"
             itemList.add(dataEntity)
@@ -26,7 +28,14 @@ class Model {
      */
     //TODO 파라미터 추가.
     fun updateContents(position: Int) {
-        itemList[position].contents = "변경할 data"
+        val origin = getItemContents(position)
+        Log.w("1111", "updateContents :: ${origin.toString()}")
+
+        // 이미 변경 키워드가 포함 되어 있으면, [변경]은 붙이지 않는다.
+        if (origin!!.contains(MODIFY_TEXT)) {
+            return
+        }
+        itemList[position].contents = MODIFY_TEXT + origin
     }
 
     /**
@@ -43,7 +52,11 @@ class Model {
         return itemList[position].contents
     }
 
-    fun getitemList(): ArrayList<DataEntity> {
+    fun getItemList(): ArrayList<DataEntity> {
         return itemList
+    }
+
+    companion object {
+        private const val MODIFY_TEXT: String = "[변경]"
     }
 }
