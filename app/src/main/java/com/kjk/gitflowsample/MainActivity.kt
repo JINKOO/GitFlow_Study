@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kjk.gitflowsample.data.Model
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         //TODO 리사이클러 뷰를 초기화해야한다.
         binding.apply {
+            rvContents.addItemDecoration(DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL))
             rvContents.layoutManager = createLayoutManager()
             rvContents.adapter = adapter
         }
@@ -43,12 +45,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun createLayoutManager(): LinearLayoutManager {
         var layoutManager = LinearLayoutManager(this)
-        layoutManager.orientation = RecyclerView.HORIZONTAL
+        layoutManager.orientation = RecyclerView.VERTICAL
         return layoutManager
     }
 
     private fun setListener() {
         binding.btnInput.setOnClickListener(this)
+        binding.btnDelete.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -56,11 +59,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.btnInput -> {
                 onClickInputButton()
             }
+            binding.btnDelete -> {
+                onClickDeleteButton()
+            }
         }
     }
 
     private fun onClickInputButton() {
         model.createTestData()
+        adapter.notifyDataSetChanged()
+    }
+
+    private fun onClickDeleteButton() {
+        model.deleteAllData()
         adapter.notifyDataSetChanged()
     }
 }
