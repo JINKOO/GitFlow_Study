@@ -24,13 +24,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private val model = Model()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initLayoutValues()
         setListener()
     }
-
 
     private fun initLayoutValues() {
         setContentView(binding.root)
@@ -66,13 +64,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     /**
-     *  data생성하는 메소드
+     *  data 생성하는 메소드
      */
     private fun onClickInputButton() {
         model.createTestData()
         adapter.notifyDataSetChanged()
     }
-
 
     /**
      * 모든 data를 삭제하는 메소드
