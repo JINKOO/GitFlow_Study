@@ -1,5 +1,6 @@
 package com.kjk.gitflowsample.view
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kjk.gitflowsample.data.Model
 import com.kjk.gitflowsample.databinding.ItemRowBinding
 
-class RecyclerViewAdapter(val model: Model): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerViewAdapter(private val model: Model): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
     private val notifyChangedCallBack: AdapterNotify by lazy {
@@ -39,14 +40,14 @@ class RecyclerViewAdapter(val model: Model): RecyclerView.Adapter<RecyclerView.V
     }
 
     override fun getItemCount(): Int {
-        return model.getitemList().size
+        return model.getItemList().size
     }
 
 
     class ItemViewHolder(
-        val binding: ItemRowBinding,
-        val model: Model,
-        val adapterNotify: AdapterNotify
+        private val binding: ItemRowBinding,
+        private val model: Model,
+        private val adapterNotify: AdapterNotify
     ) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
         init {
@@ -70,7 +71,9 @@ class RecyclerViewAdapter(val model: Model): RecyclerView.Adapter<RecyclerView.V
         }
 
         private fun dataChangeFunc() {
+            Log.w("1111", "${adapterPosition.toString()}")
             model.getItemContents(adapterPosition)
+            model.updateContents(adapterPosition)
             adapterNotify.notifyDataChanged(adapterPosition)
         }
     }
