@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     /**
      *
-     *  주석
+     * 주석 테스트
      */
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
