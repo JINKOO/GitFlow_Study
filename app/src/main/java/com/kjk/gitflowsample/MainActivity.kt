@@ -14,6 +14,10 @@ import com.kjk.gitflowsample.view.RecyclerViewAdapter
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
+    /**
+     *
+     *  주석
+     */
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
